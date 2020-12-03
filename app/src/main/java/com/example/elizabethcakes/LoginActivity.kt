@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 class LoginActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_main)
 
         //esconder la barra de status
         @Suppress("DEPRECATION")

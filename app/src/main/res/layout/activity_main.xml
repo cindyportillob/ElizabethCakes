@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="394dp"
         android:layout_height="112dp"
-        android:text=""
+        android:text="juco"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
