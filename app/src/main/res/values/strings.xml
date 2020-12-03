@@ -1,13 +1,1 @@
-<resources>
-    <string name="app_name">ElizabethCakes</string>
-
-    <string name="content_description">image</string>
-    <string name="title_login">Iniciar Sesion</string>
-    <string name="et_hint_email_id">Correo</string>
-    <string name="et_hint_password">Contraseña</string>
-    <string name="lbl_forgot_password">Olvide mi contraseña</string>
-    <string name="btn_lbl_login">Iniciar Sesion</string>
-    <string name="don_t_have_an_account">No tienes cuenta?</string>
-    <string name="register">Registraste</string>
-
-</resources>
+<resources></resources>
