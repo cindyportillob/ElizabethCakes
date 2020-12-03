@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="394dp"
         android:layout_height="112dp"
-        android:text="Hola Cindy, este mi primer aporte al clan TE ME CUIDAS SOCIO SALU2 JAJAJAJAJAJ"
+        android:text=""
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
