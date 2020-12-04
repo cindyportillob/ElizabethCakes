@@ -37,7 +37,7 @@
 
 
     </FrameLayout>
-<!-- TOT EL CAMP, ES UN CLAM, SON LA GENT BLAUGRANAAAA -->
+
     <LinearLayout
         android:id="@+id/layout2"
         android:layout_width="409dp"
