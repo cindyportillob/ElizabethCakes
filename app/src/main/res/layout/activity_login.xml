@@ -27,13 +27,13 @@
 
         <ImageView
             android:id="@+id/img2"
-            android:layout_width="match_parent"
-            android:layout_height="322dp"
-            android:layout_marginTop="15dp"
+            android:layout_width="544dp"
+            android:layout_height="652dp"
+            android:layout_marginTop="-150dp"
             android:layout_marginBottom="200dp"
+           android:layout_marginLeft="-50dp"
             android:contentDescription="Image"
-            android:src="@drawable/img_logo"
-            />
+            android:src="@drawable/img_logo" />
 
 
     </FrameLayout>
@@ -55,27 +55,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Correo Electronico"
-           />
+
+            android:layout_marginLeft="10dp"
+            />
 
         <EditText
             android:id="@+id/editTextTextPersonName"
-            android:layout_width="match_parent"
+            android:layout_width="387dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
 
-           />
+            />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Contraseña"
+            android:layout_marginLeft="10dp"
            />
 
         <EditText
             android:id="@+id/editTextTextPassword"
-            android:layout_width="match_parent"
+            android:layout_width="381dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPassword"
@@ -89,6 +92,7 @@
             android:gravity="center"
             android:layout_gravity="center"
             android:text="Olvidaste tu contraseña?"
+            android:layout_marginTop="10dp"
              />
 
         <Button
@@ -126,6 +130,7 @@
             android:textSize="16dp"
             android:layout_marginLeft="100dp"
             android:layout_marginTop="20dp"
+
             />
 
         <TextView
