@@ -1,1 +1,8 @@
-<resources></resources>
+<resources>
+    <string name="registrar">Registrate</string>
+    <string name="confirmar_password">confirmar password</string>
+    <string name="crear_cuenta">CREAR CUENTA</string>
+    <string name="nombre_completo">Nombre Completo</string>
+    <string name="inicio_sesion">inicio_sesion</string>
+    <string name="login">login</string>
+</resources>
