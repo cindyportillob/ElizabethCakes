@@ -108,7 +108,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="40dp"
             android:text="No tienes usuario?"
             android:textSize="16dp"
 
@@ -116,26 +116,14 @@
 
         <TextView
             android:id="@+id/tv_registrar"
-            android:layout_width="86dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="0.0dp"
-            android:padding="@dimen/clickable_text_view_padding"
+            android:layout_marginLeft="170dp"
+            android:layout_marginTop="-19.9dp"
             android:text="@string/registrar"
-            android:textSize="16dp" />
+            android:textSize="16dp"
+            android:textColor="@color/colorPrimaryDark"/>
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="415dp"
-        android:layout_height="176dp"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="-4dp"
-        tools:layout_editor_absoluteY="555dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout2">
 
     </LinearLayout>
 
