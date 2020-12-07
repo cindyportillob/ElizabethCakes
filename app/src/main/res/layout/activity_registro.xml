@@ -22,7 +22,7 @@
         app:layout_constraintTop_toBottomOf="@+id/nombre_completo"
         tools:layout_editor_absoluteX="0dp"
          />
-
+<!-- simon-->
     <EditText
         android:id="@+id/Password1"
         android:layout_width="match_parent"
