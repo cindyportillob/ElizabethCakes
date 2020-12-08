@@ -99,7 +99,7 @@
             android:layout_marginEnd="16dp"
             android:background="@drawable/fondo_boton"
             android:padding="25dp"
-            android:text="Inciar Sesion"
+            android:text="Iniciar Sesion"
             android:textColor="#FFFFFF"
             android:textSize="16dp" />
 
