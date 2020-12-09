@@ -1,8 +1,8 @@
-package com.example.elizabethcakes.utils
+package com.example.elizabethcakes
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.elizabethcakes.R
+
 
 
 class Recuperacion_Password : AppCompatActivity() {

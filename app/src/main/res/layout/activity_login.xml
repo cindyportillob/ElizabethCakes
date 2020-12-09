@@ -121,7 +121,7 @@
             android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="-22dp"
+            android:layout_marginTop="-19dp"
             android:layout_gravity="center_horizontal"
             android:text="@string/registrar"
             android:textColor="@color/colorPrimaryDark"

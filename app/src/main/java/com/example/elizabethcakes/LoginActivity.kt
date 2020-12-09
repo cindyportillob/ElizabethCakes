@@ -4,14 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Build
-import android.os.Handler
-import android.view.Window
-import android.view.WindowManager
+import android.text.TextUtils
+import android.view.View
 import android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN
-import com.example.elizabethcakes.utils.Recuperacion_Password
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_registro.*
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : BaseActivity1(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -25,18 +24,64 @@ class LoginActivity : AppCompatActivity() {
                 FLAG_FULLSCREEN
             )
         }
-        tv_registrar.setOnClickListener {
 
-            startActivity(Intent(this@LoginActivity,Registro::class.java))
-            finish()
+        button.setOnClickListener{
+            validateLoginDetails()
         }
 
         txt_pass_recu.setOnClickListener {
-
-            startActivity(Intent(this@LoginActivity, Recuperacion_Password::class.java))
-            finish()
+            val intent = Intent(this@LoginActivity, Recuperacion_Password::class.java)
+            startActivity(intent)
         }
 
+        tv_registrar.setOnClickListener {
+            val intent = Intent(this@LoginActivity, Registro::class.java)
+            startActivity(intent)
+        }
+
+    }
+    override fun onClick(view: View?) {
+        if(view != null){
+            when(view.id){
+                R.id.txt_pass_recu ->{
+                    val intent = Intent(this@LoginActivity, Recuperacion_Password::class.java)
+                    startActivity(intent)
+
+                }
+                R.id.button->{
+                    validateLoginDetails()
+                }
+
+                R.id.tv_registrar->{
+                    val intent = Intent(this@LoginActivity, Registro::class.java)
+                    startActivity(intent)
+                }
+            }
+        }
+    }
+
+    private fun validateLoginDetails(): Boolean {
+        return when {
+            TextUtils.isEmpty(editTextTextPersonName.text.toString().trim { it <= ' ' }) -> {
+                showErrorSnackBar(resources.getString(R.string.err_msg_enter_email), true)
+                false
+            }
+            TextUtils.isEmpty(editTextTextPassword.text.toString().trim { it <= ' ' }) -> {
+                showErrorSnackBar(resources.getString(R.string.err_msg_enter_Password1), true)
+                false
+            }
+            else -> {
+                showErrorSnackBar("Datos correctos.", false)
+                true
+            }
+        }
+    }
+
+
+    private fun logInRegisteredUser(){
+        if(validateLoginDetails()){
+
+        }
     }
 
 }
