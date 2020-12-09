@@ -97,6 +97,9 @@ class Registro : BaseActivity1() {
                                 "Ha sido registrado correctamente. Su codigo de usuario es: ${firebaseUser.uid}",
                                 false
                             )
+
+                            FirebaseAuth.getInstance().signOut()
+                            finish()
                         } else {
 
                             showErrorSnackBar(task.exception!!.message.toString(), true)

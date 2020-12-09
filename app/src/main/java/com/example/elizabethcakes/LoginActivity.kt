@@ -85,14 +85,14 @@ class LoginActivity : BaseActivity1(), View.OnClickListener {
         if(validateLoginDetails()){
             
             //obtener el texto de los campos
-            val email = editTextTextPersonName.toString().trim { it <= ' ' }
-            val password = editTextTextPassword.toString().trim { it <= ' ' }
+            val email = editTextTextPersonName.text.toString().trim { it <= ' ' }
+            val password = editTextTextPassword.text.toString().trim { it <= ' ' }
             
             //logeo utilizando firebaseAuth
             FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
 
                 if (task.isSuccessful){
-                    //TODO- Enviar al usuario a la pantalla principal
+
                     showErrorSnackBar("Logeo exitoso, Bienvenido a Elizabeth Cakes", false)
                 }else{
                     showErrorSnackBar("Error en las credenciales, intenta de nuevo",true)
