@@ -94,7 +94,7 @@ class Registro : BaseActivity1() {
                             val firebaseUser: FirebaseUser = task.result!!.user!!
 
                             showErrorSnackBar(
-                                "You are registered successfully. Your user id is ${firebaseUser.uid}",
+                                "Ha sido registrado correctamente. Su codigo de usuario es: ${firebaseUser.uid}",
                                 false
                             )
                         } else {
