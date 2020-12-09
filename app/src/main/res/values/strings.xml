@@ -15,8 +15,8 @@
     <string name="err_msg_enter_Password2">confirmar Contraseña</string>
     <string name="registery_successfull">Registro Completo</string>
     <string name="img_login">img_login</string>
-    <string name="Ol_pss">Ol_pss</string>
-    <string name="Ol_pss2">Ol_pss2</string>
+    <string name="Ol_pss">Olvide mi Contraseña</string>
+    <string name="Ol_pss2">Ingresa tu email para enviarte tu contraseña</string>
     <string name="btn_enviar_recu">btn_enviar_recu</string>
     <string name="no_tienes_usuario">No tienes usuario?</string>
     <string name="inciar_sesion">Inciar Sesion</string>
