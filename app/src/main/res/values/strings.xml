@@ -1,8 +1,7 @@
 <resources>
-    <string name="registrar">Registrate</string>
-    <string name="confirmar_password">confirmar password</string>
-    <string name="crear_cuenta">CREAR CUENTA</string>
-    <string name="nombre_completo">Nombre Completo</string>
-    <string name="inicio_sesion">inicio_sesion</string>
-    <string name="login">login</string>
+    <string name="img_login">Login</string>
+    <string name="btn_enviar_recu">Enviar</string>
+    <string name="Ol_pss">OLVIDASTE TU CONTRASEÑA?</string>
+    <string name="Ol_pss2">Ingrese su e-mail para porderle enviar un email para restablecer su contraseña</string>
+
 </resources>

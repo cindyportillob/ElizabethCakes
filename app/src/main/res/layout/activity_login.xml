@@ -43,17 +43,21 @@
         android:layout_width="409dp"
         android:layout_height="425dp"
         android:orientation="vertical"
+        tools:layout_editor_absoluteX="2dp"
+        tools:layout_editor_absoluteY="306dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout1">
+        app:layout_constraintTop_toBottomOf="@+id/layout1"
+       >
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:text="Correo Electronico"
 
-            android:text="Correo Electronico" />
+            android:layout_marginLeft="10dp"
+            />
 
         <EditText
             android:id="@+id/editTextTextPersonName"
@@ -68,8 +72,9 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Contraseña"
             android:layout_marginLeft="10dp"
-            android:text="Contraseña" />
+           />
 
         <EditText
             android:id="@+id/editTextTextPassword"
@@ -81,50 +86,61 @@
             />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/txt_pass_recu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="Olvidaste tu contraseña?" />
+            android:layout_gravity="center"
+            android:text="Olvidaste tu contraseña?"
+            android:layout_marginTop="10dp"
+             />
 
         <Button
             android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Inciar Sesion"
             android:layout_gravity="center"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/fondo_boton"
             android:padding="25dp"
-            android:text="Iniciar Sesion"
             android:textColor="#FFFFFF"
-            android:textSize="16dp" />
+            android:textSize="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/fondo_boton"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="415dp"
+        android:layout_height="176dp"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="-4dp"
+        tools:layout_editor_absoluteY="555dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout2">
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="40dp"
             android:text="No tienes usuario?"
             android:textSize="16dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="20dp"
 
             />
 
         <TextView
-            android:id="@+id/tv_registrar"
+            android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="170dp"
-            android:layout_marginTop="-19.9dp"
-            android:text="@string/registrar"
+            android:text="Registrate"
             android:textSize="16dp"
-            android:textColor="@color/colorPrimaryDark"/>
-
-
+            android:layout_marginTop="20dp"
+            />
     </LinearLayout>
 
 

@@ -24,5 +24,6 @@ class InicialActivity : AppCompatActivity() {
             2500
 
         )
+
     }
 }
