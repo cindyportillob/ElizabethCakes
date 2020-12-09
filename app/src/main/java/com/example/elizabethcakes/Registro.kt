@@ -35,7 +35,7 @@ class Registro : BaseActivity1() {
         }
 
         button2.setOnClickListener{
-            validateRegisterDetails()
+            registerUser()
         }
     }
     private fun validateRegisterDetails(): Boolean {
@@ -67,7 +67,7 @@ class Registro : BaseActivity1() {
                 false
             }
             else -> {
-                showErrorSnackBar(resources.getString(R.string.registery_successfull), false)
+               // showErrorSnackBar(resources.getString(R.string.registery_successfull), false)
                 true
             }
         }
@@ -98,7 +98,7 @@ class Registro : BaseActivity1() {
                                 false
                             )
                         } else {
-                           
+
                             showErrorSnackBar(task.exception!!.message.toString(), true)
                         }
                     })
