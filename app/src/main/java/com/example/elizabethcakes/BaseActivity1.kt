@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
 import kotlin.Boolean as Boolean1
+import android.app.Dialog
+
+
 
 open class BaseActivity1: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,4 +37,7 @@ open class BaseActivity1: AppCompatActivity() {
         }
         snackBar.show()
     }
+
+
+
 }

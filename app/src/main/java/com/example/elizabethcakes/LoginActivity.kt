@@ -7,6 +7,7 @@ import android.os.Build
 import android.text.TextUtils
 import android.view.View
 import android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_registro.*
 
@@ -26,7 +27,8 @@ class LoginActivity : BaseActivity1(), View.OnClickListener {
         }
 
         button.setOnClickListener{
-            validateLoginDetails()
+            //validateLoginDetails()
+            logInRegisteredUser()
         }
 
         txt_pass_recu.setOnClickListener {
@@ -49,7 +51,8 @@ class LoginActivity : BaseActivity1(), View.OnClickListener {
 
                 }
                 R.id.button->{
-                    validateLoginDetails()
+                    //validateLoginDetails()
+                    logInRegisteredUser()
                 }
 
                 R.id.tv_registrar->{
@@ -71,7 +74,7 @@ class LoginActivity : BaseActivity1(), View.OnClickListener {
                 false
             }
             else -> {
-                showErrorSnackBar("Datos correctos.", false)
+
                 true
             }
         }
@@ -80,7 +83,21 @@ class LoginActivity : BaseActivity1(), View.OnClickListener {
 
     private fun logInRegisteredUser(){
         if(validateLoginDetails()){
+            
+            //obtener el texto de los campos
+            val email = editTextTextPersonName.toString().trim { it <= ' ' }
+            val password = editTextTextPassword.toString().trim { it <= ' ' }
+            
+            //logeo utilizando firebaseAuth
+            FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
 
+                if (task.isSuccessful){
+                    //TODO- Enviar al usuario a la pantalla principal
+                    showErrorSnackBar("Logeo exitoso, Bienvenido a Elizabeth Cakes", false)
+                }else{
+                    showErrorSnackBar("Error en las credenciales, intenta de nuevo",true)
+                }
+            }
         }
     }
 
