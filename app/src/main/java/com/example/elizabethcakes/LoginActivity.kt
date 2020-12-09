@@ -31,10 +31,7 @@ class LoginActivity : BaseActivity1(), View.OnClickListener {
             logInRegisteredUser()
         }
 
-        txt_pass_recu.setOnClickListener {
-            val intent = Intent(this@LoginActivity, Recuperacion_Password::class.java)
-            startActivity(intent)
-        }
+        txt_pass_recu.setOnClickListener(this)
 
         tv_registrar.setOnClickListener {
             val intent = Intent(this@LoginActivity, Registro::class.java)

@@ -17,7 +17,7 @@
     <string name="img_login">img_login</string>
     <string name="Ol_pss">Olvide mi Contraseña</string>
     <string name="Ol_pss2">Ingresa tu email para enviarte tu contraseña</string>
-    <string name="btn_enviar_recu">btn_enviar_recu</string>
+    <string name="btn_enviar_recu">Enviar</string>
     <string name="no_tienes_usuario">No tienes usuario?</string>
     <string name="inciar_sesion">Inciar Sesion</string>
 
