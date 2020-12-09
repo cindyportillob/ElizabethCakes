@@ -5,4 +5,6 @@
     <color name="colorAccent">#ED2173</color>
     <color name="colorPrimaryText">#3F51B5</color>
 
+    <color name="colorSnackBarSuccess">#8BC34A</color>
+    <color name="colorSnackBarError">#F72400</color>
 </resources>
