@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.view.WindowInsets
 import android.view.WindowManager
+import android.widget.Toast
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
@@ -47,7 +48,7 @@ class Registro : BaseActivity1() {
                 )
                 false
             }
-            TextUtils.isEmpty(email.text.toString().trim { it <= ' ' }) -> {
+            TextUtils.isEmpty(email1.text.toString().trim { it <= ' ' }) -> {
                 showErrorSnackBar(
                     resources.getString(R.string.err_msg_enter_email),
                     true
@@ -80,7 +81,7 @@ class Registro : BaseActivity1() {
 
 
 
-            val email: String = email.text.toString().trim { it <= ' ' }
+            val email: String = email1.text.toString().trim { it <= ' ' }
             val password: String = Password1.text.toString().trim { it <= ' ' }
 
             // Create an instance and create a register a user with email and password.
@@ -93,13 +94,23 @@ class Registro : BaseActivity1() {
                             // Firebase registered user
                             val firebaseUser: FirebaseUser = task.result!!.user!!
 
-                            showErrorSnackBar(
-                                "Ha sido registrado correctamente. Su codigo de usuario es: ${firebaseUser.uid}",
-                                false
+                            val user = Users(
+                                firebaseUser.uid,
+                                nombre_completo.text.toString().trim { it <= ' ' },
+                                Password1.text.toString().trim { it <= ' ' },
+                                email1.text.toString().trim { it <= ' ' }
                             )
 
-                            FirebaseAuth.getInstance().signOut()
-                            finish()
+                            FireStore().registerUser(this@Registro, user)
+
+
+                            //showErrorSnackBar(
+                              //  "Ha sido registrado correctamente. Su codigo de usuario es: ${firebaseUser.uid}",
+                             //   false
+                            //)
+
+                            //FirebaseAuth.getInstance().signOut()
+                            //finish()
                         } else {
 
                             showErrorSnackBar(task.exception!!.message.toString(), true)
@@ -108,5 +119,13 @@ class Registro : BaseActivity1() {
         }
     }
 
+
+    fun Registroexitoso(){
+        Toast.makeText(
+            this@Registro,
+            resources.getString(R.string.registery_successfull),
+            Toast.LENGTH_SHORT
+        ).show()
+    }
 }
 
