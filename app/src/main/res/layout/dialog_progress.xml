@@ -8,8 +8,6 @@
     android:gravity="center"
     android:padding="@dimen/progress_dialog_content_padding">
 
-
-
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
@@ -19,7 +17,6 @@
         app:layout_constraintEnd_toStartOf="@+id/tv_progress_text"
         app:layout_constraintLeft_toLeftOf="parent"
         />
-
 
     <TextView
         android:id="@+id/tv_progress_text"

@@ -22,7 +22,6 @@ open class BaseActivity1: AppCompatActivity() {
             Snackbar.make(findViewById(android.R.id.content), message, Snackbar.LENGTH_LONG)
         val snackBarView = snackBar.view
 
-
         if (errorMessage){
             snackBarView.setBackgroundColor(
                 ContextCompat.getColor(
@@ -55,7 +54,6 @@ open class BaseActivity1: AppCompatActivity() {
     }
     fun hideProgressDialog() {
         mProgressDialog.dismiss()
-
     }
 }
 

@@ -103,7 +103,6 @@ class Registro : BaseActivity1() {
 
                             FireStore().registerUser(this@Registro, user)
 
-
                             //showErrorSnackBar(
                               //  "Ha sido registrado correctamente. Su codigo de usuario es: ${firebaseUser.uid}",
                              //   false
@@ -118,7 +117,6 @@ class Registro : BaseActivity1() {
                     })
         }
     }
-
 
     fun Registroexitoso(){
         Toast.makeText(
