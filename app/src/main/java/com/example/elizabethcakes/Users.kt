@@ -1,5 +1,9 @@
 package com.example.elizabethcakes
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 class Users (
 
     val id: String="",
@@ -8,5 +12,5 @@ class Users (
     val image: String="",
     val mobile: Long = 0,
     val genero: String="",
-    val Pcompleto: Int = 0)
+    val Pcompleto: Int = 0): Parcelable
 

@@ -8,6 +8,7 @@ import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN
+import com.example.elizabethcakes.utils.Constants
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.auth.User
 import kotlinx.android.synthetic.main.activity_login.*
@@ -50,8 +51,9 @@ class LoginActivity : BaseActivity1(), View.OnClickListener {
         Log.i("Email: ",user.Email)
 
         if (user.Pcompleto == 0 ){
-            val intent1 = Intent(this@LoginActivity, UserProfileActivity::class.java)
-            startActivity(intent1)
+            val intent = Intent(this@LoginActivity, UserProfileActivity::class.java)
+            intent.putExtra(Constants.EXTRA_USER_DETAILS, user)
+            startActivity(intent)
 
         }else{
             val intent2 = Intent(this@LoginActivity,  MainActivity::class.java)
