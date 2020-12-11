@@ -36,8 +36,8 @@ class LoginActivity : BaseActivity1(), View.OnClickListener {
         txt_pass_recu.setOnClickListener(this)
 
         tv_registrar.setOnClickListener {
-            val intent = Intent(this@LoginActivity, Registro::class.java)
-            startActivity(intent)
+            val intent3 = Intent(this@LoginActivity, Registro::class.java)
+            startActivity(intent3)
         }
 
     }
@@ -49,7 +49,14 @@ class LoginActivity : BaseActivity1(), View.OnClickListener {
         Log.i("Nombre Completo: ",user.Nombre)
         Log.i("Email: ",user.Email)
 
-        startActivity(Intent(this@LoginActivity,  UserProfileActivity::class.java))
+        if (user.Pcompleto == 0 ){
+            val intent1 = Intent(this@LoginActivity, UserProfileActivity::class.java)
+            startActivity(intent1)
+
+        }else{
+            val intent2 = Intent(this@LoginActivity,  MainActivity::class.java)
+            startActivity(intent2)
+        }
         finish()
     }
 
@@ -104,7 +111,7 @@ class LoginActivity : BaseActivity1(), View.OnClickListener {
             FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
                 if (task.isSuccessful){
-
+                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
                     FireStore().getUserDetails(this@LoginActivity)
                 }else{
                     hideProgressDialog()

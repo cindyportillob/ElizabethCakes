@@ -46,7 +46,8 @@
                 android:layout_marginTop="@dimen/profile_user_image_marginTop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                >
 
                 <ImageView
                     android:id="@+id/iv_user_photo"
@@ -64,20 +65,17 @@
                     android:background="@drawable/user_image_background"/>
             </FrameLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_first_name"
-                app:layout_constraintEndtoEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/fl_user_image"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:id="@+id/campos_texto"
+                android:layout_width="409dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="35dp"
-                android:layout_marginEnd="16dp"
-                android:textColorHint="@color/colorSecondaryText"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fl_user_image"
                 >
-                <androidx.appcompat.widget.AppCompatEditText
+                <EditText
                     android:id="@+id/et_first_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -85,23 +83,19 @@
                     android:hint="Nombre Completo"
                     android:padding="@dimen/et_padding"
                     android:textColor="@color/colorPrimaryText"
-                    android:textSize="@dimen/et_textSize"/>
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_email"
-                app:layout_constraintEndtoEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_first_name"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="35dp"
-                android:layout_marginEnd="16dp"
-                android:textColorHint="@color/colorSecondaryText"
-                >
-                <androidx.appcompat.widget.AppCompatEditText
+                    android:textSize="@dimen/et_textSize"
+                    android:importantForAutofill="no" />
+                <EditText
+                    android:id="@+id/et_mobile_number"
+                    android:layout_width="387dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:hint="Numero Telefonico"
+                    android:padding="@dimen/et_padding"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="@dimen/et_textSize"
+                    android:autofillHints="" />
+                <EditText
                     android:id="@+id/et_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -109,33 +103,9 @@
                     android:hint="Correo Id"
                     android:padding="@dimen/et_padding"
                     android:textColor="@color/colorPrimaryText"
-                    android:textSize="@dimen/et_textSize"/>
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_mobile_number"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                app:layout_constraintEndtoEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="35dp"
-                android:layout_marginEnd="16dp"
-                android:textColorHint="@color/colorSecondaryText"
-                >
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/et_mobile_number"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="text"
-                    android:hint="Numero Telefonico"
-                    android:padding="@dimen/et_padding"
-                    android:textColor="@color/colorPrimaryText"
-                    android:textSize="@dimen/et_textSize"/>
-            </com.google.android.material.textfield.TextInputLayout>
-
+                    android:textSize="@dimen/et_textSize"
+                    android:importantForAutofill="no" />
+            </LinearLayout>
             <RadioGroup
                 android:id="@+id/rg_gender"
                 android:layout_width="match_parent"
@@ -144,10 +114,10 @@
                 android:layout_marginTop="25dp"
                 android:layout_marginEnd="16dp"
                 android:orientation="horizontal"
-                app:layout_constraintBottom_toTopOf="@id/btn_submit"
+                app:layout_constraintBottom_toTopOf="@id/boton_layout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/til_mobile_number">
+                app:layout_constraintTop_toBottomOf="@+id/campos_texto">
 
                 <androidx.appcompat.widget.AppCompatRadioButton
                     android:id="@+id/rb_male"
@@ -175,30 +145,32 @@
                     android:text="@string/rb_lbl_mujer"
                     android:textColor="@drawable/drawable_gender_tab_text_color_selector"
                     android:textStyle="bold"/>
-                    
             </RadioGroup>
-            <Button
-                android:id="@+id/btn_submit"
+            <LinearLayout
                 android:layout_width="match_parent"
+                android:id="@+id/boton_layout"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartof="parent"
-                app:layout_constraintTop_toBottomOf="@id/rg_gender"
-                android:layout_gravity="center"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/fondo_boton"
-                android:foreground="?attr/selectableItemBackground"
-                android:gravity="center"
-                android:paddingTop="@dimen/btn_padding"
-                android:paddingBottom="@dimen/btn_padding"
-                android:textColor="@color/blanco"
-                android:text="Guardar"
-                android:textSize="@dimen/btn_textSize"
-                />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rg_gender">
+                <Button
+                    android:id="@+id/btn_submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/fondo_boton"
+                    android:baselineAligned="false"
+                    android:padding="25dp"
+                    android:text="Guardar"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16dp"
+                    />
+            </LinearLayout>
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
