@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Build
 import android.text.TextUtils
+import android.util.Log
 import android.view.View
 import android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.auth.User
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_registro.*
 
@@ -39,6 +41,13 @@ class LoginActivity : BaseActivity1(), View.OnClickListener {
         }
 
     }
+
+    fun userLoggedInSuccess(user: User){
+        hideProgressDialog()
+
+       // Log.i("Nombre: ", user.)
+    }
+
     override fun onClick(view: View?) {
         if(view != null){
             when(view.id){
@@ -90,7 +99,7 @@ class LoginActivity : BaseActivity1(), View.OnClickListener {
 
                 if (task.isSuccessful){
 
-                    showErrorSnackBar("Logeo exitoso, Bienvenido a Elizabeth Cakes", false)
+                    showErrorSnackBar("Loggueo exitoso, Bienvenido a Elizabeth Cakes", false)
                 }else{
                     showErrorSnackBar("Error en las credenciales, intenta de nuevo",true)
                 }
