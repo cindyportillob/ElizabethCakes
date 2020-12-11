@@ -21,5 +21,10 @@
     <string name="no_tienes_usuario">No tienes usuario?</string>
     <string name="inciar_sesion">Inciar Sesion</string>
 
+    <string name="please_wait">Please wait&#8230;</string>
+
+
+
+
 
 </resources>

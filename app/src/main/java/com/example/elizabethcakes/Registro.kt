@@ -79,7 +79,7 @@ class Registro : BaseActivity1() {
         // Check with validate function if the entries are valid or not.
         if (validateRegisterDetails()) {
 
-
+            showProgressDialog(resources.getString(R.string.please_wait))
 
             val email: String = email1.text.toString().trim { it <= ' ' }
             val password: String = Password1.text.toString().trim { it <= ' ' }
@@ -88,7 +88,7 @@ class Registro : BaseActivity1() {
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(
                     OnCompleteListener<AuthResult> { task ->
-
+                        hideProgressDialog()
                         if (task.isSuccessful) {
 
                             // Firebase registered user

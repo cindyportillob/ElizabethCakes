@@ -5,10 +5,14 @@ import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
 import kotlin.Boolean as Boolean1
 import android.app.Dialog
-
+import kotlinx.android.synthetic.main.dialog_progress.*
 
 
 open class BaseActivity1: AppCompatActivity() {
+
+
+    private lateinit var mProgressDialog: Dialog
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_base1)
@@ -37,7 +41,21 @@ open class BaseActivity1: AppCompatActivity() {
         }
         snackBar.show()
     }
+    fun showProgressDialog(text:String) {
+        mProgressDialog = Dialog(this)
 
+        mProgressDialog.setContentView(R.layout.dialog_progress)
 
+        mProgressDialog.tv_progress_text.text = text
 
+        mProgressDialog.setCancelable(false)
+        mProgressDialog.setCanceledOnTouchOutside(false)
+        mProgressDialog.show()
+
+    }
+    fun hideProgressDialog() {
+        mProgressDialog.dismiss()
+
+    }
 }
+
