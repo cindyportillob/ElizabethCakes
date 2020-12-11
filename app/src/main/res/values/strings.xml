@@ -29,5 +29,7 @@
     <string name="rb_lbl_mujer">MUJER</string>
     <string name="btn_lbl_guardar">Guardar Cambios</string>
     <string name="content_description">imagen</string>
+    <string name="read_storage_permission_denied">Nego, el acceso al almacenamiento, si quiere cambiarlo
+    debe hacerlo desde las configuraciones de la app</string>
 
 </resources>
