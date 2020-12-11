@@ -1,8 +1,13 @@
 package com.example.elizabethcakes
 
+import android.app.Activity
 import android.util.Log
+import com.example.elizabethcakes.utils.Constants
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
+import com.google.firebase.firestore.auth.User
+
 
 class FireStore {
 
@@ -19,7 +24,7 @@ class FireStore {
     fun registerUser(activity: Registro, userInfo: Users) {
 
         // The "users" is collection name. If the collection is already created then it will not create the same one again.
-        mFireStore.collection("users")
+        mFireStore.collection(Constants.USERS)
             // Document ID for users fields. Here the document it is the User ID.
             .document(userInfo.id)
             // Here the userInfo are Field and the SetOption is set to merge. It is for if we wants to merge later on instead of replacing the fields.
@@ -39,6 +44,51 @@ class FireStore {
             }
     }
 
+    fun getCurrentUserID():String{
+        //crear instancia de currentUser a traves de FirebaseAuth
+        val currentUser= FirebaseAuth.getInstance().currentUser
+
+        //creamos variable para asignar el currentUserId en caso que sea nulo, saldra en blanco
+        var currentUserId= ""
+        if(currentUser != null){
+            currentUserId = currentUser.uid
+        }
+        return currentUserId
+    }
+
+
+    fun getUserDetails(activity: Activity){
+
+        mFireStore.collection(Constants.USERS)
+                //El documento id para llegar al campo de user
+            .document(getCurrentUserID())
+            .get()
+            .addOnSuccessListener { document ->
+
+                Log.i(activity.javaClass.simpleName, document.toString())
+
+                val user = document.toObject(Users::class.java)!!
+
+                //TODO Step 6: Pass the result to the login activity
+                //Start
+                when(activity){
+                    is LoginActivity -> {
+                        //llamar a una funcion de la actividad base para transferir el resultado
+                        activity.userLoggedInSuccess(user)
+                    }
+                }
+                //Fin
+            }
+            .addOnFailureListener{e ->
+                when(activity){
+                    is LoginActivity -> {
+                        activity.hideProgressDialog()
+                    }
+                }
+
+            }
+
+    }
 
 
 }

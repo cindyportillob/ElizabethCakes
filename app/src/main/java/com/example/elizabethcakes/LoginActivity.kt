@@ -42,10 +42,15 @@ class LoginActivity : BaseActivity1(), View.OnClickListener {
 
     }
 
-    fun userLoggedInSuccess(user: User){
+    fun userLoggedInSuccess(user: Users){
         hideProgressDialog()
 
-       // Log.i("Nombre: ", user.)
+       //imprimir detalles de usuarios en el log
+        Log.i("Nombre Completo: ",user.Nombre)
+        Log.i("Email: ",user.Email)
+
+        startActivity(Intent(this@LoginActivity,  UserProfileActivity::class.java))
+        finish()
     }
 
     override fun onClick(view: View?) {
@@ -89,18 +94,20 @@ class LoginActivity : BaseActivity1(), View.OnClickListener {
 
     private fun logInRegisteredUser(){
         if(validateLoginDetails()){
+            showProgressDialog("Por favor Espere")
             
             //obtener el texto de los campos
             val email = editTextTextPersonName.text.toString().trim { it <= ' ' }
             val password = editTextTextPassword.text.toString().trim { it <= ' ' }
             
             //logeo utilizando firebaseAuth
-            FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
-
+            FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener { task ->
                 if (task.isSuccessful){
 
-                    showErrorSnackBar("Loggueo exitoso, Bienvenido a Elizabeth Cakes", false)
+                    FireStore().getUserDetails(this@LoginActivity)
                 }else{
+                    hideProgressDialog()
                     showErrorSnackBar("Error en las credenciales, intenta de nuevo",true)
                 }
             }

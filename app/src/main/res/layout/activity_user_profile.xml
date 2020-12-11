@@ -66,48 +66,23 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_first_name"
+                app:layout_constraintEndtoEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fl_user_image"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="35dp"
                 android:layout_marginEnd="16dp"
-
                 android:textColorHint="@color/colorSecondaryText"
-                app:layout_constraintEndtoEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/fl_user_image">
+                >
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_first_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
-                    android:hint="Nombre"
-                    android:padding="@dimen/et_padding"
-                    android:textColor="@color/colorPrimaryText"
-                    android:textSize="@dimen/et_textSize"/>
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_last_name"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="35dp"
-                android:layout_marginEnd="16dp"
-
-                android:textColorHint="@color/colorSecondaryText"
-                app:layout_constraintEndtoEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_first_name">
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/et_last_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="text"
-                    android:hint="Apellido"
+                    android:hint="Nombre Completo"
                     android:padding="@dimen/et_padding"
                     android:textColor="@color/colorPrimaryText"
                     android:textSize="@dimen/et_textSize"/>
@@ -115,17 +90,17 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_email"
+                app:layout_constraintEndtoEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/til_first_name"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="35dp"
                 android:layout_marginEnd="16dp"
-
                 android:textColorHint="@color/colorSecondaryText"
-                app:layout_constraintEndtoEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_last_name">
+                >
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_email"
                     android:layout_width="match_parent"
@@ -140,16 +115,16 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_mobile_number"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:layout_constraintEndtoEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/til_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="35dp"
                 android:layout_marginEnd="16dp"
-
                 android:textColorHint="@color/colorSecondaryText"
-                app:layout_constraintEndtoEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_email">
+                >
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_mobile_number"
                     android:layout_width="match_parent"
@@ -187,7 +162,6 @@
                     android:text="@string/rb_lbl_hombre"
                     android:textColor="@drawable/drawable_gender_tab_text_color_selector"
                     android:textStyle="bold"/>
-
                 <androidx.appcompat.widget.AppCompatRadioButton
                     android:id="@+id/rb_female"
                     android:layout_width="0dp"
@@ -207,6 +181,10 @@
                 android:id="@+id/btn_submit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartof="parent"
+                app:layout_constraintTop_toBottomOf="@id/rg_gender"
                 android:layout_gravity="center"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="30dp"
@@ -220,10 +198,7 @@
                 android:textColor="@color/blanco"
                 android:text="Guardar"
                 android:textSize="@dimen/btn_textSize"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartof="parent"
-                app:layout_constraintTop_toBottomOf="@id/rg_gender"/>
+                />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
