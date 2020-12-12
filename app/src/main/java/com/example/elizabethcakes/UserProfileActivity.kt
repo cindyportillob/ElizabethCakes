@@ -18,12 +18,11 @@ import java.io.IOException
 import java.util.jar.Manifest
 
 class UserProfileActivity : BaseActivity1(), View.OnClickListener {
+   private lateinit var detalleUsuario: Users
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_profile)
 
-
-       var detalleUsuario: Users = Users()
         if (intent.hasExtra(Constants.EXTRA_USER_DETAILS)){
             detalleUsuario = intent.getParcelableExtra(Constants.EXTRA_USER_DETAILS)!!
         }
@@ -61,13 +60,43 @@ class UserProfileActivity : BaseActivity1(), View.OnClickListener {
 
                 R.id.btn_submit ->{
                     if (validateUserProfileDetails()){
-                        showErrorSnackBar("Su detalle esta completo, puede actualizarlo",false)
+
+                        val userHashMap = HashMap<String, Any>()
+                        val numeroTelefono = et_mobile_number.text.toString().trim { it <= ' '}
+                        val gender = if(rb_male.isChecked){
+                            Constants.MALE
+                        }else{
+                            Constants.FEMALE
+                        }
+
+                        if(numeroTelefono.isNotEmpty()){
+                            userHashMap[Constants.MOBILE] = numeroTelefono.toLong()
+                        }
+
+                        userHashMap[Constants.GENDER] = gender
+
+                        showProgressDialog("Espera por favor")
+
+
+                        FireStore().updateUserProfileData(this, userHashMap)
+
+                        //showErrorSnackBar("Su detalle esta completo, puede actualizarlo",false)
                     }
                 }
             }
         }
     }
 
+    fun userProfileUpdateSuccess(){
+        hideProgressDialog()
+        Toast.makeText(
+            this@UserProfileActivity,
+            "El Perfil ha sido actualizado exitosamente"
+            ,Toast.LENGTH_SHORT
+        ).show()
+        startActivity(Intent(this@UserProfileActivity,MainActivity::class.java))
+        finish()
+    }
 
     override fun onRequestPermissionsResult(
         requestCode: Int,

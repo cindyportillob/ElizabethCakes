@@ -91,4 +91,32 @@ class FireStore {
     }
 
 
+    fun updateUserProfileData(activity: Activity, userHashMap: HashMap<String, Any>){
+        mFireStore.collection(Constants.USERS)
+            .document(getCurrentUserID())
+            .update(userHashMap)
+            .addOnSuccessListener {
+                when(activity){
+                    is UserProfileActivity ->{
+                        activity.userProfileUpdateSuccess()
+                    }
+                }
+
+
+            }.addOnFailureListener{
+                    e->
+                when(activity){
+                    is UserProfileActivity ->{
+                        activity.hideProgressDialog()
+                    }
+                }
+                Log.e(
+                    activity.javaClass.simpleName,
+                    "Error al actualizar el detalle del usuario",
+                    e
+                )
+
+            }
+    }
+
 }

@@ -16,6 +16,13 @@ object Constants {
     const val READ_STORAGE_PERMISSION_CODE = 2
     const val PICK_IMAGE_REQUEST_CODE = 1
 
+
+    const val MALE : String = "male"
+    const val FEMALE: String = "female"
+
+    const val MOBILE: String = "mobile"
+    const val GENDER: String = "Gender"
+
     fun showImageChooser(activity: Activity ){
         var galleryIntent = Intent(
             Intent.ACTION_PICK,
