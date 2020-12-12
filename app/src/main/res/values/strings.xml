@@ -32,5 +32,9 @@
     <string name="read_storage_permission_denied">Nego, el acceso al almacenamiento, si quiere cambiarlo
     debe hacerlo desde las configuraciones de la app</string>
     <string name="image_selection_failed">Fallo al seleccionar la imagen, intente de nuevo</string>
+    <string name="title_activity_dash_board_activy">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 
 </resources>
