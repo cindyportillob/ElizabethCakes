@@ -36,5 +36,10 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="title_activity_cindy_problema">MainActivity</string>
+    <string name="title_activity_main12">MainActivity</string>
+    <string name="title_activity_main2">MainActivity</string>
+    <string name="title_activity_main_cindy">MainActivity</string>
+    <string name="title_activity_main35">MainActivity</string>
 
 </resources>

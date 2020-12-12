@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.elizabethcakes">
+    package="com.example.elizabethcakes" >
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -12,10 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="ExtraText">
+        tools:ignore="ExtraText" >
+
         <activity
             android:name=".DashBoardActivy"
-            android:label="Elizabeth Cakes"></activity>
+            android:label="Elizabeth Cakes" />
         <activity android:name=".MainActivity" />
         <activity
             android:name=".Registro"
@@ -26,7 +27,10 @@
         <activity
             android:name=".LoginActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".InicialActivity">
+        <activity
+            android:name=".MainActivity3"
+            android:screenOrientation="portrait" />
+        <activity android:name=".InicialActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
