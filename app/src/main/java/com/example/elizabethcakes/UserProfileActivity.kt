@@ -1,6 +1,9 @@
 package com.example.elizabethcakes
 
+import android.app.Activity
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -10,6 +13,7 @@ import androidx.core.content.ContextCompat
 import com.example.elizabethcakes.utils.Constants
 import com.google.firebase.firestore.auth.User
 import kotlinx.android.synthetic.main.activity_user_profile.*
+import java.io.IOException
 import java.util.jar.Manifest
 
 class UserProfileActivity : BaseActivity1(), View.OnClickListener {
@@ -42,7 +46,8 @@ class UserProfileActivity : BaseActivity1(), View.OnClickListener {
                     if (ContextCompat.checkSelfPermission(this,
                             android.Manifest.permission.READ_EXTERNAL_STORAGE)
                         == PackageManager.PERMISSION_GRANTED){
-                        showErrorSnackBar("Facilitaste el acceso a la galeria",false)
+                        showErrorSnackBar("Selecciona tu imagen",false)
+                        Constants.showImageChooser(this)
                     }else{
 
                         ActivityCompat.requestPermissions(
@@ -64,11 +69,34 @@ class UserProfileActivity : BaseActivity1(), View.OnClickListener {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == Constants.READ_STORAGE_PERMISSION_CODE){
             if(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                showErrorSnackBar("El permiso a los archivos fue permitido",false)
+                //showErrorSnackBar("El permiso a los archivos fue permitido",false)
+                Constants.showImageChooser(this)
             }else{
                 Toast.makeText(this, resources.getString(R.string.read_storage_permission_denied),
                 Toast.LENGTH_LONG
                 ).show()
+            }
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(resultCode == Activity.RESULT_OK){
+            if(requestCode == Constants.PICK_IMAGE_REQUEST_CODE){
+                if(data != null){
+                    try {
+                        val selectedImageFileUri = data.data!!
+
+                        iv_user_photo.setImageURI(selectedImageFileUri)
+                    }catch (e: IOException){
+                        e.printStackTrace()
+                        Toast.makeText(
+                            this@UserProfileActivity,
+                            resources.getString(R.string.image_selection_failed),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
             }
         }
     }

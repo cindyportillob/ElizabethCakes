@@ -94,7 +94,6 @@
                     android:padding="@dimen/et_padding"
                     android:textColor="@color/colorPrimaryText"
                     android:textSize="@dimen/et_textSize"
-
                     android:autofillHints="" />
                 <EditText
                     android:id="@+id/et_email"

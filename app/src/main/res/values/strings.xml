@@ -31,5 +31,6 @@
     <string name="content_description">imagen</string>
     <string name="read_storage_permission_denied">Nego, el acceso al almacenamiento, si quiere cambiarlo
     debe hacerlo desde las configuraciones de la app</string>
+    <string name="image_selection_failed">Fallo al seleccionar la imagen, intente de nuevo</string>
 
 </resources>
