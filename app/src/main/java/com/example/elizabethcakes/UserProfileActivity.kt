@@ -19,6 +19,7 @@ import java.util.jar.Manifest
 
 class UserProfileActivity : BaseActivity1(), View.OnClickListener {
    private lateinit var detalleUsuario: Users
+    private var selectedImageFileUri: Uri? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_profile)
@@ -59,6 +60,9 @@ class UserProfileActivity : BaseActivity1(), View.OnClickListener {
                 }
 
                 R.id.btn_submit ->{
+                    showProgressDialog("Por favor Espera")
+                    FireStore().uploadImageToCloudStore(this, selectedImageFileUri)
+
                     if (validateUserProfileDetails()){
 
                         val userHashMap = HashMap<String, Any>()
@@ -122,7 +126,7 @@ class UserProfileActivity : BaseActivity1(), View.OnClickListener {
             if(requestCode == Constants.PICK_IMAGE_REQUEST_CODE){
                 if(data != null){
                     try {
-                        val selectedImageFileUri = data.data!!
+                         selectedImageFileUri = data.data!!
 
                         iv_user_photo.setImageURI(selectedImageFileUri)
                     }catch (e: IOException){
@@ -147,5 +151,13 @@ class UserProfileActivity : BaseActivity1(), View.OnClickListener {
             }
 
         }
+    }
+
+    fun imageUploadSuccess(imageURL: String){
+        hideProgressDialog()
+        Toast.makeText(this@UserProfileActivity,
+        "Tu imagen se ha cargado exitosamente",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 }

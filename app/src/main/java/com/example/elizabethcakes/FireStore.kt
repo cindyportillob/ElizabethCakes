@@ -1,12 +1,15 @@
 package com.example.elizabethcakes
 
 import android.app.Activity
+import android.net.Uri
 import android.util.Log
 import com.example.elizabethcakes.utils.Constants
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.auth.User
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 
 
 class FireStore {
@@ -116,6 +119,48 @@ class FireStore {
                     e
                 )
 
+            }
+    }
+
+
+    fun uploadImageToCloudStore(activity: Activity, imageFileURI:Uri?){
+        val sRef: StorageReference = FirebaseStorage.getInstance().reference.child(
+            Constants.USER_PROFILE_IMAGE
+                    + System.currentTimeMillis()+"."
+        + Constants.getFileExtension(
+                activity,
+                imageFileURI
+            )
+        )
+
+        sRef.putFile(imageFileURI!!).addOnSuccessListener { taskSnapshot ->
+            Log.e(
+                "Firebase Image URL",
+                taskSnapshot.metadata!!.reference!!.downloadUrl.toString()
+            )
+            taskSnapshot.metadata!!.reference!!.downloadUrl
+                .addOnSuccessListener { uri->
+                    Log.e("URL de imagen Descargable",
+                    uri.toString())
+                    when(activity){
+                        is UserProfileActivity ->{
+                            activity.imageUploadSuccess(uri.toString())
+                        }
+                    }
+                }
+        }
+            .addOnFailureListener{exception ->
+
+                when(activity){
+                    is UserProfileActivity->{
+                        activity.hideProgressDialog()
+                    }
+                }
+                Log.e(
+                    activity.javaClass.simpleName,
+                    exception.message,
+                    exception
+                )
             }
     }
 
