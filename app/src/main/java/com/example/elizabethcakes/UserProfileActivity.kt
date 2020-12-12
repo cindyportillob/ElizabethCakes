@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.View
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
@@ -30,13 +31,14 @@ class UserProfileActivity : BaseActivity1(), View.OnClickListener {
 
 
 
-       //et_first_name.isEnabled = false
-        //et_first_name.setText(detalleUsuario.Nombre)
+       et_first_name.isEnabled = false
+        et_first_name.setText(detalleUsuario.Nombre)
 
-        //et_email.isEnabled = false
-        //et_email.setText(detalleUsuario.Email)
+        et_email.isEnabled = false
+        et_email.setText(detalleUsuario.Email)
 
         iv_user_photo.setOnClickListener(this@UserProfileActivity)
+        btn_submit.setOnClickListener(this@UserProfileActivity)
     }
 
     override fun onClick(v: View?) {
@@ -54,6 +56,12 @@ class UserProfileActivity : BaseActivity1(), View.OnClickListener {
                             this, arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),
                             Constants.READ_STORAGE_PERMISSION_CODE
                         )
+                    }
+                }
+
+                R.id.btn_submit ->{
+                    if (validateUserProfileDetails()){
+                        showErrorSnackBar("Su detalle esta completo, puede actualizarlo",false)
                     }
                 }
             }
@@ -98,6 +106,17 @@ class UserProfileActivity : BaseActivity1(), View.OnClickListener {
                     }
                 }
             }
+        }
+    }
+    private fun validateUserProfileDetails():Boolean{
+        return when{
+            TextUtils.isEmpty(et_mobile_number.text.toString().trim(){it <= ' '}) -> {
+                showErrorSnackBar("el campo de numero telefonico esta vacio",true)
+                false
+            }else->{
+                true
+            }
+
         }
     }
 }
